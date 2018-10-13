@@ -22,12 +22,6 @@ namespace KERBALISM
 		}
 
 		[Conditional( "DEBUG" )]
-		public static void DebugLog( string msg )
-		{
-			UnityEngine.Debug.Log( "[Kerbalism] " + msg );
-		}
-
-		[Conditional( "DEBUG" )]
 		public static void Debug( string message, params object[] param )
 		{
 			StackTrace stackTrace = new StackTrace();
