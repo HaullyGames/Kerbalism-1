@@ -60,7 +60,7 @@ namespace KERBALISM
 				stretchWidth = true,
 				fixedHeight = ScaleFloat(16.0f)
 			};
-
+			
 			// entry label text
 			entry_label = new GUIStyle(HighLogic.Skin.label)
 			{
@@ -212,7 +212,4 @@ namespace KERBALISM
 		public static GUIStyle smallStationHead;
 		public static GUIStyle smallStationText;
 	}
-
-
 } // KERBALISM
-
