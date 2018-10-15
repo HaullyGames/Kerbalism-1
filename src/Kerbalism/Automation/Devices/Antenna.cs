@@ -162,8 +162,8 @@ namespace KERBALISM
 					return "fixed";
 				case "ModuleRTAntenna":
 					return Lib.Proto.GetBool(antenna, "IsRTActive")
-						? "<color=cyan>" + Localizer.Format("#KERBALISM_Generic_ACTIVE") + "</color>"
-						: "<color=red>" + Localizer.Format("#KERBALISM_Generic_INACTIVE") + "</color>";
+						? "<color=cyan>" + Localizer.Format("#KERBALISM_Generic_EXTENDED") + "</color>"
+						: "<color=red>" + Localizer.Format("#KERBALISM_Generic_RETRACTED") + "</color>";
 			}
 			return "unknown";
 		}
