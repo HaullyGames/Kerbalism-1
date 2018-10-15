@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace KERBALISM
 {
-
-
 	public static class DevManager
 	{
 		public static void Devman(this Panel p, Vessel v)
@@ -73,7 +70,7 @@ namespace KERBALISM
 				  Description(),
 				  () => p.Prev(ref script_index, (int)ScriptType.last),
 				  () => p.Next(ref script_index, (int)ScriptType.last),
-					 true
+				  true
 				);
 
 				// for each device
@@ -123,24 +120,24 @@ namespace KERBALISM
 			if (script_index == 0) return "<i>Control vessel components directly</i>";
 			switch ((ScriptType)script_index)
 			{
-				case ScriptType.landed: return Localizer.Format("#Kerbalism_UI_1000000");        // #Kerbalism_UI_1000000 = <i>Called on landing</i>
-				case ScriptType.atmo: return Localizer.Format("#Kerbalism_UI_1000001");      // #Kerbalism_UI_1000001 = <i>Called on entering atmosphere</i>
-				case ScriptType.space: return Localizer.Format("#Kerbalism_UI_1000002");     // #Kerbalism_UI_1000002 = <i>Called on reaching space</i>
-				case ScriptType.sunlight: return Localizer.Format("#Kerbalism_UI_1000003");      // #Kerbalism_UI_1000003 = <i>Called when sun became visible</i>
-				case ScriptType.shadow: return Localizer.Format("#Kerbalism_UI_1000004");        // #Kerbalism_UI_1000004 = <i>Called when sun became occluded</i>
-				case ScriptType.power_high: return Localizer.Format("#Kerbalism_UI_1000005");        // #Kerbalism_UI_1000005 = <i>Called when EC level goes above 80%</i>
-				case ScriptType.power_low: return Localizer.Format("#Kerbalism_UI_1000006");     // #Kerbalism_UI_1000006 = <i>Called when EC level goes below 20%</i>
-				case ScriptType.rad_high: return Localizer.Format("#Kerbalism_UI_1000007");      // #Kerbalism_UI_1000007 = <i>Called when radiation exceed 0.05 rad/h</i>
-				case ScriptType.rad_low: return Localizer.Format("#Kerbalism_UI_1000008");       // #Kerbalism_UI_1000008 = <i>Called when radiation goes below 0.02 rad/h</i>
-				case ScriptType.linked: return Localizer.Format("#Kerbalism_UI_1000009");        // #Kerbalism_UI_1000009 = <i>Called when signal is regained</i>
-				case ScriptType.unlinked: return Localizer.Format("#Kerbalism_UI_1000010");      // #Kerbalism_UI_1000010 = <i>Called when signal is lost</i>
-				case ScriptType.eva_out: return Localizer.Format("#Kerbalism_UI_1000011");       // #Kerbalism_UI_1000011 = <i>Called when going out on EVA</i>
-				case ScriptType.eva_in: return Localizer.Format("#Kerbalism_UI_1000012");        // #Kerbalism_UI_1000012 = <i>Called when returning from EVA</i>
-				case ScriptType.action1: return Localizer.Format("#Kerbalism_UI_1000013");       // #Kerbalism_UI_1000013 = <i>Called by pressing <b>1</b> on the keyboard</i>
-				case ScriptType.action2: return Localizer.Format("#Kerbalism_UI_1000014");       // #Kerbalism_UI_1000014 = <i>Called by pressing <b>2</b> on the keyboard</i>
-				case ScriptType.action3: return Localizer.Format("#Kerbalism_UI_1000015");       // #Kerbalism_UI_1000015 = <i>Called by pressing <b>3</b> on the keyboard</i>
-				case ScriptType.action4: return Localizer.Format("#Kerbalism_UI_1000016");       // #Kerbalism_UI_1000016 = <i>Called by pressing <b>4</b> on the keyboard</i>
-				case ScriptType.action5: return Localizer.Format("#Kerbalism_UI_1000017");       // #Kerbalism_UI_1000017 = <i>Called by pressing <b>5</b> on the keyboard</i>
+				case ScriptType.landed:     return Localizer.Format("#Kerbalism_UI_1000000");     // #Kerbalism_UI_1000000 = <i>Called on landing</i>
+				case ScriptType.atmo:       return Localizer.Format("#Kerbalism_UI_1000001");     // #Kerbalism_UI_1000001 = <i>Called on entering atmosphere</i>
+				case ScriptType.space:      return Localizer.Format("#Kerbalism_UI_1000002");     // #Kerbalism_UI_1000002 = <i>Called on reaching space</i>
+				case ScriptType.sunlight:   return Localizer.Format("#Kerbalism_UI_1000003");     // #Kerbalism_UI_1000003 = <i>Called when sun became visible</i>
+				case ScriptType.shadow:     return Localizer.Format("#Kerbalism_UI_1000004");     // #Kerbalism_UI_1000004 = <i>Called when sun became occluded</i>
+				case ScriptType.power_high: return Localizer.Format("#Kerbalism_UI_1000005");     // #Kerbalism_UI_1000005 = <i>Called when EC level goes above 80%</i>
+				case ScriptType.power_low:  return Localizer.Format("#Kerbalism_UI_1000006");     // #Kerbalism_UI_1000006 = <i>Called when EC level goes below 20%</i>
+				case ScriptType.rad_high:   return Localizer.Format("#Kerbalism_UI_1000007");     // #Kerbalism_UI_1000007 = <i>Called when radiation exceed 0.05 rad/h</i>
+				case ScriptType.rad_low:    return Localizer.Format("#Kerbalism_UI_1000008");     // #Kerbalism_UI_1000008 = <i>Called when radiation goes below 0.02 rad/h</i>
+				case ScriptType.linked:     return Localizer.Format("#Kerbalism_UI_1000009");     // #Kerbalism_UI_1000009 = <i>Called when signal is regained</i>
+				case ScriptType.unlinked:   return Localizer.Format("#Kerbalism_UI_1000010");     // #Kerbalism_UI_1000010 = <i>Called when signal is lost</i>
+				case ScriptType.eva_out:    return Localizer.Format("#Kerbalism_UI_1000011");     // #Kerbalism_UI_1000011 = <i>Called when going out on EVA</i>
+				case ScriptType.eva_in:     return Localizer.Format("#Kerbalism_UI_1000012");     // #Kerbalism_UI_1000012 = <i>Called when returning from EVA</i>
+				case ScriptType.action1:    return Localizer.Format("#Kerbalism_UI_1000013");     // #Kerbalism_UI_1000013 = <i>Called by pressing <b>1</b> on the keyboard</i>
+				case ScriptType.action2:    return Localizer.Format("#Kerbalism_UI_1000014");     // #Kerbalism_UI_1000014 = <i>Called by pressing <b>2</b> on the keyboard</i>
+				case ScriptType.action3:    return Localizer.Format("#Kerbalism_UI_1000015");     // #Kerbalism_UI_1000015 = <i>Called by pressing <b>3</b> on the keyboard</i>
+				case ScriptType.action4:    return Localizer.Format("#Kerbalism_UI_1000016");     // #Kerbalism_UI_1000016 = <i>Called by pressing <b>4</b> on the keyboard</i>
+				case ScriptType.action5:    return Localizer.Format("#Kerbalism_UI_1000017");     // #Kerbalism_UI_1000017 = <i>Called by pressing <b>5</b> on the keyboard</i>
 			}
 			return string.Empty;
 		}
@@ -148,7 +145,4 @@ namespace KERBALISM
 		// mode/script index
 		static int script_index;
 	}
-
-
 } // KERBALISM
-

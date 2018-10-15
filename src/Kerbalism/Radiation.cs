@@ -467,11 +467,11 @@ namespace KERBALISM
 				RadiationBody rb = Info(body);
 				Space gsm = Gsm_space(rb.body, FlightGlobals.Bodies[rb.reference]);
 
-				// [debug] show axis
-				//LineRenderer.commit(gsm.origin, gsm.origin + gsm.x_axis * gsm.scale * 5.0f, Color.red);
-				//LineRenderer.commit(gsm.origin, gsm.origin + gsm.y_axis * gsm.scale * 5.0f, Color.green);
-				//LineRenderer.commit(gsm.origin, gsm.origin + gsm.z_axis * gsm.scale * 5.0f, Color.blue);
-
+#if DEBUG		// show axis
+				LineRenderer.Commit(gsm.origin, gsm.origin + gsm.x_axis * gsm.scale * 5.0f, Color.red);
+				LineRenderer.Commit(gsm.origin, gsm.origin + gsm.y_axis * gsm.scale * 5.0f, Color.green);
+				LineRenderer.Commit(gsm.origin, gsm.origin + gsm.z_axis * gsm.scale * 5.0f, Color.blue);
+#endif			
 				// get magnetic field data
 				RadiationModel mf = Info(body).model;
 

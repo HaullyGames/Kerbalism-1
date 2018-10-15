@@ -325,7 +325,6 @@ namespace KERBALISM
 				}
 			}
 
-			devices = devices.OrderBy(k => k.Value.Name()).ToDictionary(pair => pair.Key, pair => pair.Value);
 			//return all found devices sorted by name
 			return devices;
 		}
