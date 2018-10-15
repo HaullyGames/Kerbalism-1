@@ -1,7 +1,9 @@
+using CommNet;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
@@ -16,9 +18,11 @@ namespace KERBALISM
 		// --- UTILS ----------------------------------------------------------------
 
 		// write a message to the log
-		public static void Log( string msg )
+		public static void Log( string msg, params object[] param)
 		{
-			MonoBehaviour.print( "[Kerbalism] " + msg );
+			StackTrace stackTrace = new StackTrace();
+			UnityEngine.Debug.Log(string.Format("{0} -> verbose: {1}.{2} - {3}", "[Kerbalism] ", stackTrace.GetFrame(1).GetMethod().ReflectedType.Name,
+				stackTrace.GetFrame(1).GetMethod().Name, string.Format(msg, param)));
 		}
 
 		[Conditional( "DEBUG" )]
@@ -787,7 +791,6 @@ namespace KERBALISM
 			else return v.protoVessel.landed || v.protoVessel.splashed;
 		}
 
-
 		// return vessel position
 		public static Vector3d VesselPosition( Vessel v )
 		{
@@ -818,13 +821,11 @@ namespace KERBALISM
 			return pos;
 		}
 
-
 		// return set of crew on a vessel
 		public static List<ProtoCrewMember> CrewList( Vessel v )
 		{
 			return v.loaded ? v.GetVesselCrew() : v.protoVessel.GetVesselCrew();
 		}
-
 
 		// return crew count of a vessel
 		public static int CrewCount( Vessel v )
@@ -850,7 +851,6 @@ namespace KERBALISM
 				return capacity;
 			}
 		}
-
 
 		// return true if this is a 'vessel'
 		public static bool IsVessel( Vessel v )
@@ -896,6 +896,34 @@ namespace KERBALISM
 			  : v.protoVessel.protoPartSnapshots[v.protoVessel.rootIndex].flightID;
 		}
 
+		public static Vessel CommNodeToVessel(CommNode node)
+		{
+			// Is is home return null
+			if (node.isHome) return null;
+
+			foreach (Vessel w in FlightGlobals.Vessels)
+			{
+				if (!IsVessel(w)) continue;
+
+				if (AreSame(node, w.connection.Comm))
+				{
+					return w;
+				}
+			}
+
+			Log("The node " + node.name + " is not valid.");
+			return null;
+		}
+
+		public static bool AreSame(CommNode a, CommNode b)
+		{
+			if (a == null || b == null)
+			{
+				return false;
+			}
+
+			return a.precisePosition == b.precisePosition;
+		}
 
 		// --- PART -----------------------------------------------------------------
 
