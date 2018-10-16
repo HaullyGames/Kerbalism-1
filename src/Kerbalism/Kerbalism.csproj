@@ -204,9 +204,10 @@
     <Compile Include="Database\SupplyData.cs" />
     <Compile Include="Database\UIData.cs" />
     <Compile Include="Database\VesselData.cs" />
+    <Compile Include="DeployEC\DeployEC.cs" />
     <Compile Include="Modules\Deploy.cs" />
-    <Compile Include="DeviceEC.cs" />
-    <Compile Include="Automation\Devices\LandingGear.cs" />
+    <Compile Include="DeployEC\DeviceEC.cs" />
+    <Compile Include="DeployEC\Devices\LandingGear.cs" />
     <Compile Include="External\RemoteTech.cs" />
     <Compile Include="External\SCANsat.cs" />
     <Compile Include="Modules\Harvester.cs" />
