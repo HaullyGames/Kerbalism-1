@@ -1607,13 +1607,13 @@ namespace KERBALISM
 
 
 		// show a modal popup window where the user can choose among two options
-		public static PopupDialog Popup( string title, string msg, DialogGUIBase one, DialogGUIBase two )
+		public static PopupDialog Popup(string title, string msg, params DialogGUIBase [] buttons)
 		{
 			return PopupDialog.SpawnPopupDialog
 			(
-			  new Vector2( 0.5f, 0.5f ),
-			  new Vector2( 0.5f, 0.5f ),
-			  new MultiOptionDialog( title, msg, title, HighLogic.UISkin, one, two ),
+			  new Vector2(0.5f, 0.5f),
+			  new Vector2(0.5f, 0.5f),
+			  new MultiOptionDialog(title, msg, title, HighLogic.UISkin, buttons),
 			  false,
 			  HighLogic.UISkin,
 			  true,
